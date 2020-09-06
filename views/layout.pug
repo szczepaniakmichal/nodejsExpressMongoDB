@@ -1,7 +1,20 @@
 doctype html
+
+mixin item(tilte, url)
+  li
+    a(href=url class=`item ${path === url ? 'active' : ''}`)=tilte
+
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    span=path
+    nav
+      ul
+        +item('Strona glowna', '/')
+        +item('Aktualnosci', '/news')
+        +item('quiz', '/quiz')
+        +item('admin', '/admin')
+
     block content
